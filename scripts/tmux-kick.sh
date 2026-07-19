@@ -7,8 +7,9 @@
 # clients (editor/IDE integrations you usually do NOT want to kick) and the
 # client you invoked from, then lets you pick what to detach.
 #
-# Bound in ~/.tmux.conf as prefix+F6, which passes --client-tty '#{client_tty}'
-# so the invoking client is identified exactly (no same-session ambiguity).
+# Bound by twigsmux.tmux as prefix+F6 / S-F6 / Y, which pass
+# --client-tty '#{client_tty}' so the invoking client is identified exactly
+# (no same-session ambiguity).
 # Run bare from a shell it falls back to `tmux display-message`.
 #
 # Defaults are safe:

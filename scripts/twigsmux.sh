@@ -21,8 +21,10 @@ if [[ "${1-}" == "--start-worktree-session" ]]; then
         exec zsh -i
     fi
 
-    zsh "$PLUGIN_ROOT/shell/run-fn.zsh" wtct --branch "$TWIGSMUX_WORKTREE_BRANCH" --select-window ai
-    exec zsh -i
+    # exec so the wt cd hook moves THIS pane's process; run-fn then execs the
+    # interactive shell, which inherits the new worktree as cwd (parity with
+    # the old `exec zsh -lic 'wtct ...; exec zsh -i'`).
+    exec zsh "$PLUGIN_ROOT/shell/run-fn.zsh" --then-interactive wtct --branch "$TWIGSMUX_WORKTREE_BRANCH" --select-window ai
 fi
 
 worktree_target_for_selected_session() {

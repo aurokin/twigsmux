@@ -42,6 +42,10 @@ The two pieces are independent: the tmux keybinds work without the `.zshrc`
 line (popups never read your shell config), and the shell functions work
 without the keybinds.
 
+If TPM installs plugins somewhere else (e.g. the XDG layout
+`~/.config/tmux/plugins`), adjust the path in the `.zshrc` line to match —
+the keybinds self-locate either way.
+
 ## Keybinds
 
 | Key | Action |
@@ -50,7 +54,7 @@ without the keybinds.
 | `prefix+T` | switcher popup (full screen) |
 | `prefix+y` | switcher popup; creating a session also creates a worktree + scaffold |
 | `prefix+O` | scaffold editor/git/query/ai windows in the current session |
-| `prefix+F6` / `prefix+Y` | detach-client picker (half / full) |
+| `prefix+F6` / `prefix+S-F6` / `prefix+Y` | detach-client picker (half / full / full) |
 
 Inside the switcher: `enter` select, `ctrl-n` new, `ctrl-k` kill session,
 `ctrl-r` remove worktree + session.

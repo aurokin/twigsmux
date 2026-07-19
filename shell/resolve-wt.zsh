@@ -9,9 +9,12 @@
 twigsmux_resolve_wt() {
     command -v wt >/dev/null 2>&1 && return 0
 
-    if [[ -n "${TWIGSMUX_WT:-}" && -x "$TWIGSMUX_WT" ]]; then
-        path=("${TWIGSMUX_WT:h}" $path)
-        command -v wt >/dev/null 2>&1 && return 0
+    if [[ -n "${TWIGSMUX_WT:-}" ]]; then
+        if [[ -f "$TWIGSMUX_WT" && -x "$TWIGSMUX_WT" && "${TWIGSMUX_WT:t}" == "wt" ]]; then
+            path=("${TWIGSMUX_WT:h}" $path)
+            return 0
+        fi
+        echo "twigsmux: TWIGSMUX_WT is not an executable named wt, ignoring: $TWIGSMUX_WT" >&2
     fi
 
     local dir
