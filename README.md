@@ -14,9 +14,6 @@ as a TPM plugin.
 - **Kick** other attached clients from a popup (`prefix+F6`), control-mode
   clients protected.
 
-> Status: in development, pre-cutover. The canonical copies still live in the
-> author's dotfiles; this repo becomes canonical at cutover.
-
 ## Requirements
 
 tmux >= 3.3, zsh, fzf, git, and worktrunk (`wt`) for the worktree features.

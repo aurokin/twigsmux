@@ -1,9 +1,8 @@
 # Agent Instructions
 
 ## Status
-- Pre-cutover: canonical copies of most files still live in `~/.dotfiles` and are in daily use there.
-- Behavior parity with the dotfiles copies is the contract; behavioral changes must be deliberate and noted in commit messages.
-- `scripts/tmux-popup.sh` is a vendored copy — keep it byte-identical to `~/.dotfiles/zsh/.zshrc.d/scripts/tmux-popup.sh`.
+- This repo is canonical; it shipped from a dotfiles extraction (history and rationale in `docs/extraction-design.md`).
+- `scripts/tmux-popup.sh` is vendored: the author's dotfiles keep an identical copy for other tools; keep the two byte-identical when editing either.
 
 ## Layout
 - `twigsmux.tmux` — TPM entry point; ALL keybinds are installed here and only here.
@@ -35,4 +34,4 @@
 | Need | File |
 |------|------|
 | User docs, keybinds, install | `README.md` |
-| Design rationale, migration/cutover plan | `~/.dotfiles/docs/twigsmux-extraction.md` (author machines only) |
+| Design rationale, extraction history | `docs/extraction-design.md` |
