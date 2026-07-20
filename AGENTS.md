@@ -28,6 +28,7 @@
 - Session state lives in tmux options `@twigsmux_worktree_branch` / `@twigsmux_worktree_cwd`; user config uses `@twigsmux-*` (dash) options.
 - `scripts/` is bash; `shell/` is zsh. Match the file's dialect.
 - Tests mock `tmux` and `wt` — never touch a live tmux server or create/remove real worktrees from tests or ad-hoc verification.
+- Interactive runtime verification: dedicated tmux server (`tmux -L <socket>`, `env -u TMUX`) with an overridden `HOME` (worktrunk's `worktree-path` is `~`-relative, so worktrees stay contained), driven through a real PTY client via `termctrl` (kitlangton/terminal-control) — popups need an attached client.
 - Run all three test files after any change to `scripts/twigsmux.sh` or `shell/functions/`.
 
 ## External References
